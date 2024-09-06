@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: #000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #33ff33;
+    position: relative;
+}
+
+/* Remove this block
+body, button, input {
+    cursor: none !important;
+}
+*/
+
+/* Remove the #cursor styles */
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #33ff33;
+    text-shadow: 0 0 10px #33ff33;
+}
+
+.chat-layout {
+    display: flex;
+    width: 95%;
+    height: 90vh;
+    max-width: 1200px;
+    border: 4px solid #33ff33;
+    box-shadow: 0 0 20px #33ff33;
+}
+
+.sidebar {
+    width: 200px;
+    max-width: 25%;
+    background: #111;
+    border-right: 4px solid #33ff33;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#room-list {
+    list-style-type: none;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#room-list li {
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #222;
+    border: 2px solid #33ff33;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
+}
+
+#room-list li:hover {
+    background: #2a2a2a;
+}
+
+#room-list li.active {
+    background: #33ff33;
+    color: #000;
+}
+
+#new-room-input, #create-room-button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    background: #000;
+    border: 2px solid #33ff33;
+    color: #33ff33;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+}
+
+#create-room-button {
+    background: #33ff33;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#create-room-button:hover {
+    background: #00cc00;
+}
+
+.chat-container {
+    flex-grow: 1;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: 10px;
+    border-bottom: 2px solid #33ff33;
+}
+
+.chat-header p {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+#current-room {
+    color: #00cc00;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 2px solid #33ff33;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 5px;
+    background: #000;
+    border: 2px solid #33ff33;
+    color: #33ff33;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#send-button {
+    padding: 5px 10px;
+    background: #33ff33;
+    color: #000;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#send-button:hover {
+    background: #00cc00;
+}
+
+/* Message styles */
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 1.4;
+    position: relative;
+    animation: popIn 0.3s ease-out;
+}
+
+.message.sent {
+    background-color: #33ff33;
+    color: #000;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 0;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.message.received {
+    background-color: #222;
+    color: #33ff33;
+    align-self: flex-start;
+    margin-right: auto;
+    border-bottom-left-radius: 0;
+    animation: slideInLeft 0.3s ease-out;
+}
+
+.message .nickname {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+
+.message .timestamp {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* System message style */
+.message.system {
+    background-color: rgba(51, 255, 51, 0.1);
+    color: #33ff33;
+    text-align: center;
+    max-width: 90%;
+    margin: 10px auto;
+    font-style: italic;
+    animation: popIn 0.3s ease-out;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #33ff33;
+    border: 2px solid #000;
+}
+
+/* Text selection color */
+::selection {
+    background-color: rgba(51, 255, 51, 0.3);
+    color: #000;
+}
+
+::-moz-selection {
+    background-color: rgba(51, 255, 51, 0.3);
+    color: #000;
+}
+
+.typing-indicator {
+    font-style: italic;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Add these animation keyframes at the end of your CSS file */
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.made-by {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #33ff33;
+    text-shadow: 0 0 5px #33ff33;
+}
